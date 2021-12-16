@@ -1,0 +1,8 @@
+__pycache__/
+data/
+thumbnails/
+videos/
+chromedriver/
+.ipynb_checkpoints/
+.vscode/
+.history/
