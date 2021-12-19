@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -53,8 +53,8 @@ def yt_time_ago_to_datetime(time_ago):
   # Source: https://stackoverflow.com/questions/12566152/python-x-days-ago-to-datetime
   parsed_str = [time_ago.split()[:2]]
   time_dict = dict((fmt, float(amount)) for amount, fmt in parsed_str)
-  dt = datetime.timedelta(**time_dict)
-  past_time = datetime.datetime.now() - dt
+  dt = timedelta(**time_dict)
+  past_time = datetime.now() - dt
   return past_time
 
 def yt_label_to_num(label):
@@ -85,6 +85,7 @@ def yt_label_to_datetime(label):
   """Converts YT formatted date strings into datetime objects."""
   if label is None:
       return None
+      
   return label # TODO: convert to datetime
 
 def run_with_retry(func, times=3, refresh_driver=None):
